@@ -60,10 +60,10 @@ This was necessary because early runs showed that with a small model on an A100,
 
 
 ## 3. Conceptual Background
-What prefix caching does
+#### What prefix caching does
 Prefix caching in vLLM reuses the KV cache for repeated prompt prefixes, but only if that KV remains available in the serving process.
 
-What LMCache adds
+#### What LMCache adds
 LMCache acts as an external KV storage layer. In the local Colab setup, it primarily stores KV in CPU memory. Its value is not that it makes decode inherently faster. Its purpose is to preserve reusable KV when GPU memory is insufficient to keep all useful prefixes resident.
 
 A simple example:
